@@ -119,10 +119,10 @@ static NSString *const kCompletedCallbackKey = @"completed";
         request.HTTPShouldHandleCookies = (options & SDWebImageDownloaderHandleCookies);
         request.HTTPShouldUsePipelining = YES;
         if (wself.headersFilter) {
-            request.allHTTPHeaderFields = wself.headersFilter(url, [wself.HTTPHeaders copy]);
+            request.allHTTPHeaderFields = wself.headersFilter(url, [[SDWebImageDownloader sharedDownloader].HTTPHeaders copy]);
         }
         else {
-            request.allHTTPHeaderFields = wself.HTTPHeaders;
+            request.allHTTPHeaderFields = [SDWebImageDownloader sharedDownloader].HTTPHeaders;
         }
         operation = [[SDWebImageDownloaderOperation alloc] initWithRequest:request
                                                                    options:options
