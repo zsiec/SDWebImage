@@ -28,6 +28,9 @@
 @property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundTaskId;
 #endif
 
+@synthesize executing = _executing;
+@synthesize finished = _finished;
+
 @end
 
 @implementation SDWebImageDownloaderOperation {
